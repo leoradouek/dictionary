@@ -1,0 +1,18 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+label {
+  margin: 20px;
+}
+
+button {
+  background-color: rgb(3, 202, 202);
+  border: none;
+  color: white;
+  height: 40px;
+  width: 100px;
+  border-radius: 6px;
+}
