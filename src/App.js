@@ -1,20 +1,14 @@
-import logo from "./logo.svg";
 import "./App.css";
-import React from "react";
-import Backwards from "./Backwards";
-import Definition from "./Definition";
+import Navbar from "./Components/Navbar";
+import Routes from "./Routes";
 
-const dictionaryAPI = "https://api.dictionaryapi.dev/api/v2/entries/en/";
-
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <Backwards />
-        <Definition />
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div className="App">
+      {/* <Navbar /> */}
+      <Routes />
+    </div>
+  );
+};
 
 export default App;

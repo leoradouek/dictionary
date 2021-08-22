@@ -1,13 +1,11 @@
 import { useState } from "react";
-import "./Form.css";
-
-const dictionaryAPI = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+import "./Backwards.css";
+import dictionaryAPI from "../dictionaryAPI";
 
 const Backwards = () => {
   const [word, setWord] = useState("");
   const [isPending, setIsPending] = useState(false);
   const [reversedWord, setReversedWord] = useState("");
-  const [definitions, setDefintions] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // prevents page from refreshing when clicking submit
@@ -19,10 +17,8 @@ const Backwards = () => {
     res && setIsPending(false);
     if (res.length) {
       setReversedWord(reverse);
-      setDefintions(res[0].meanings[0].definitions);
     } else {
       setReversedWord("");
-      setDefintions([]);
     }
 
     // how to do then chaining:
@@ -52,18 +48,7 @@ const Backwards = () => {
       ) : (
         <button disabled>Searching for Results..</button>
       )}
-      {reversedWord.length ? (
-        <>
-          <p>You found a valid word!</p>
-          <p>Word: {reversedWord}</p>
-          <p>Definitions:</p>
-          {definitions.map((definition) => (
-            <p key={definition.id}>{definition.definition}</p>
-          ))}
-        </>
-      ) : (
-        <p>Try again!</p>
-      )}
+      {reversedWord.length ? <p>{reversedWord} is a valid word</p> : <p></p>}
     </form>
   );
 };
